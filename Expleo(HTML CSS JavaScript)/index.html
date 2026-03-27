@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO Meta -->
+  <meta name="description" content="BookShelf — Your personal book collection manager. Track, organize, and reflect on your reading journey.">
+  <meta name="author" content="Bootcamp Student">
+
+  <!-- Performance: Preconnect for external images -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="BookShelf — My Book Collection">
+  <meta property="og:description" content="BookShelf helps you organize, track, and reflect on your reading journey. Whether you're a casual reader or a bookworm, keeping a record of what you've read helps you discover patterns and remember insights.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/bookshelf">
+  <meta property="og:image" content="https://media.istockphoto.com/id/859494662/photo/text-story-begins-typed-on-retro-typewriter.jpg">
+  <meta property="og:image:alt" content="A typewriter with the words Story Begins — representing the BookShelf reading tracker">
+  <meta property="og:site_name" content="BookShelf">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BookShelf — My Book Collection">
+  <meta name="twitter:description" content="Track, organize, and reflect on your reading journey with BookShelf.">
+  <meta name="twitter:image" content="https://media.istockphoto.com/id/859494662/photo/text-story-begins-typed-on-retro-typewriter.jpg">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>BookShelf — My Book Collection</title>
+</head>
+
+<body>
+
+  <!-- ==================== HEADER & NAV ==================== -->
+  <header role="banner" id="header">
+    <hgroup class="main-header">
+      <h1 id="main-heading">BookShelf</h1>
+    </hgroup>
+
+    <nav aria-label="Main navigation" id="main-navbar">
+        <a class="anchor" href="#my-collection">My Collection</a>
+        <a class="anchor" href="#add-book">Add a Book</a>
+        <a class="anchor" href="#reading-stats">Reading Stats</a>
+        <a class="anchor" href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ==================== MY COLLECTION ==================== -->
+    <section id="my-collection" aria-labelledby="collection-heading">
+      <h2 id="collection-heading">My Book Collection</h2>
+      <p id="collection-para">Currently tracking <strong>6 books</strong> across different genres.</p>
+
+      <!-- Book 1 -->
+      <nav id="books-nav">
+      <article aria-labelledby="book1-title" id="book1">
+        <h3 id="book1-title">Dune</h3>
+
+        <figure>
+          <img
+            src="book1.jpg"
+            alt="Dune Story Book"
+            width="250"
+            height="350"
+            loading="lazy">
+          <figcaption>20th Anniversary Edition</figcaption>
+        </figure>
+
+        <dl>
+          <dt><b>Author</b></dt>
+          <dd>Frank Herbert</dd>
+
+          <dt><b>Genre</b></dt>
+          <dd>Technology, Adventure</dd>
+
+          <dt><b>Date Added</b></dt>
+          <dd><time datetime="2025-01-15">January 15, 2025</time></dd>
+
+          <dt><b>Rating</b></dt>
+          <dd>
+            <span aria-hidden="true"> ★★★★☆ (4/5)</span>
+          </dd>
+
+          <dt><b>Status</b></dt>
+          <dd>Currently Reading</dd>
+        </dl>
+
+        <p class="book-para">A Adventures story about the place Dune</p>
+      </article>
+
+      <!-- Book 2 -->
+      <article aria-labelledby="book2-title" id="book2">
+        <h3 id="book2-title">Harry Potter</h3>
+
+        <figure>
+          <img
+            src="book2.jpg"
+            alt="image of harry potter book"
+            width="250"
+            height="350"
+            loading="lazy">
+          <figcaption>20th Anniversary Edition</figcaption>
+        </figure>
+
+        <dl>
+          <dt><b>Author</b></dt>
+          <dd>J.k.Rowling</dd>
+
+          <dt><b>Genre</b></dt>
+          <dd>Fantasy</dd>
+
+          <dt><b>Date Added</b></dt>
+          <dd><time datetime="2025-01-15">January 15, 2025</time></dd>
+
+          <dt><b>Rating</b></dt>
+          <dd>
+            <span aria-hidden="true"> ★★★★☆ (4/5)</span>
+          </dd>
+
+          <dt><b>Status</b></dt>
+          <dd>Currently Reading</dd>
+        </dl>
+
+        <p class="book-para">A fantasy story about the magical school</p>
+       </article>
+      </nav>
+    </section>
+
+    <!-- ==================== ADD A BOOK ==================== -->
+    <section id="add-book" aria-labelledby="add-book-heading">
+      <h2 id="add-book-heading">Add a New Book</h2>
+      <p id="add-book-para">Fill in the details below to add a book to your collection.</p>
+
+      <form method="post" action="/add-book" enctype="multipart/form-data" novalidate>
+
+        <fieldset class="add-book-box">
+          <legend >Book Information </legend>
+
+          <label for="title">Book Title </label>
+          <input type="text" id="title" name="title" required autocomplete="off" aria-required="true"><br>
+
+          <label for="author">Author </label>
+          <input type="text" id="author" name="author" required autocomplete="off" aria-required="true"><br>
+
+          <label for="isbn"> ISBN (13 digits)<input type="text" id="isbn" name="isbn" inputmode="numeric" pattern="\d{13}"
+            aria-describedby="isbn-hint" autocomplete="off" maxlength="13">
+            <span id="isbn-hint">(Optional &mdash; 13-digit number found on the back cover)</span>
+          </label>
+          <br>
+
+          <label for="genre">Genre</label>
+          <select id="genre" name="genre" required aria-required="true">
+            <option value="">-- Select a genre --</option>
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Non-Fiction</option>
+            <option value="mystery">Mystery</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="science-fiction">Science Fiction</option>
+            <option value="biography">Biography</option>
+            <option value="self-help">Self-Help</option>
+            <option value="technology">Technology</option>
+            <option value="other">Other</option>
+          </select><br>
+
+          <label for="pages">Number of Pages</label>
+          <input type="number" id="pages" name="pages" required min="1" aria-required="true"><br>
+
+          <label for="book-cover">Book Cover Image</label>
+          <input type="file" id="book-cover" name="book-cover" accept="image/*"><br>
+        </fieldset>
+
+        <fieldset class="add-book-box">
+          <legend>Reading Details</legend>
+
+          <label for="date-added">Date Added <abbr title="required">*</abbr></label>
+          <input type="date" id="date-added" name="date-added" required aria-required="true">
+
+          <label for="rating">
+            Your Rating (1–5):
+            <output for="rating" id="rating-output">3</output>
+          </label>
+          <input type="range" id="rating" name="rating" min="1" max="5" value="3"
+            aria-valuemin="1" aria-valuemax="5" aria-valuenow="3"
+            oninput="document.getElementById('rating-output').value = this.value">
+
+          <fieldset class="add-book-box">
+            <legend>Reading Status <abbr title="required">*</abbr></legend>
+
+            <input type="radio" id="want-to-read" name="status" value="want-to-read" required>
+            <label for="want-to-read">Want to Read</label>
+
+            <input type="radio" id="currently-reading" name="status" value="currently-reading">
+            <label for="currently-reading">Currently Reading</label>
+
+            <input type="radio" id="finished" name="status" value="finished">
+            <label for="finished">Finished</label>
+
+            <input type="radio" id="abandoned" name="status" value="abandoned">
+            <label for="abandoned">Abandoned</label>
+          </fieldset>
+
+          <input type="checkbox" id="favorite" name="favorite" value="yes">
+          <label for="favorite">Mark as Favourite</label><br>
+
+          <label for="notes">Personal Notes:</label>
+          <textarea id="notes" name="notes" rows="4" cols="50"
+            placeholder="Your thoughts about this book..."></textarea>
+        </fieldset>
+
+        <fieldset class="add-book-box">
+          <legend>Recommend to a Friend (Optional)</legend>
+
+          <label for="friend-name">Friend's Name:</label>
+          <input type="text" id="friend-name" name="friend-name" placeholder="e.g., Jane Smith" autocomplete="off"><br>
+
+          <label for="friend-email">Friend's Email:</label>
+          <input type="email" id="friend-email" name="friend-email" placeholder="e.g., jane@example.com" autocomplete="email"><br>
+
+          <label for="friend-phone">Friend's Phone:</label>
+          <input type="tel" id="friend-phone" name="friend-phone" placeholder="e.g., 0987-0987-78" autocomplete="tel"><br>
+        </fieldset>
+
+        <div role="group" aria-label="Form actions" id="add-book-buttons">
+          <button type="button" id="add-btn">Add Book to Collection </button>
+          <button type="reset">Clear Form</button>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- ==================== READING STATS ==================== -->
+    <section id="reading-stats" aria-labelledby="stats-heading">
+      
+        <h2 id="stats-heading">Reading Statistics</h2>
+        <p>Books read per genre in 2024–2025</p>
+
+      <table id="table1">
+        <thead>
+          <tr>
+            <th scope="col">Genre</th>
+            <th scope="col">Books Read</th>
+            <th scope="col">Total Pages</th>
+            <th scope="col">Avg. Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Technology</td>
+            <td>4</td>
+            <td>1,450</td>
+            <td><span aria-label="4 out of 5 stars">★★★★☆</span></td>
+          </tr>
+          <tr>
+            <td>Self-Help</td>
+            <td>3</td>
+            <td>980</td>
+            <td><span aria-label="4 out of 5 stars">★★★★☆</span></td>
+          </tr>
+          <tr>
+            <td>Fiction</td>
+            <td>5</td>
+            <td>1,820</td>
+            <td><span aria-label="5 out of 5 stars">★★★★★</span></td>
+          </tr>
+          <tr>
+            <td>Biography</td>
+            <td>2</td>
+            <td>740</td>
+            <td><span aria-label="3 out of 5 stars">★★★☆☆</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row">Total</th>
+            <td>14</td>
+            <td>4,990</td>
+            <td>&mdash;</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- ==================== ABOUT (with details/summary) ==================== -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About BookShelf</h2>
+      <p id="about-para">
+        BookShelf helps you organize, track, and reflect on your reading journey.
+        Whether you're a casual reader or a bookworm, keeping a record of what you've read
+        helps you discover patterns and remember insights.
+      </p>
+
+      <!-- Quick Reading Tips -->
+      
+        <h3>Quick Reading Tips</h3>
+          <p>Set a daily reading goal (even 15 minutes counts!)</p>
+          <p>Keep a reading journal alongside your books</p>
+          <p>Join a book club for accountability</p>
+          <p>Mix genres to avoid reader burnout</p>
+      
+
+      <!-- Features Coming Soon — using ol as requested -->
+      <details>
+        <summary>Features Coming Soon</summary>
+          <p>Reading progress tracker with page numbers</p>
+          <p>Book recommendation engine</p>
+          <p>Social sharing and friend libraries</p>
+          <p>Annual reading challenge goals</p>
+          <p>Dark mode support</p>
+      </details>
+      <br>
+
+      <!-- Keyboard Shortcuts — using table as requested -->
+      <details>
+        <summary>Keyboard Shortcuts</summary>
+        <table id="about-table">
+          <caption>Available keyboard shortcuts for BookShelf</caption>
+          <thead>
+            <tr>
+              <th scope="col">Shortcut</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>N</kbd></td>
+              <td>Add a new book</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>F</kbd></td>
+              <td>Search your collection</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>S</kbd></td>
+              <td>Save current form</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>H</kbd></td>
+              <td>Go to home / collection</td>
+            </tr>
+            <tr>
+              <td><kbd>Esc</kbd></td>
+              <td>Close modal / cancel action</td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer role="contentinfo">
+    <p id="footer-para">
+      <small>
+        &copy; <time datetime="2025">2025</time> BookShelf &mdash; HTML-CSS-JS Bootcamp Demo
+      </small>
+    </p>
+    <address>
+      Created by <a class="anchor2" href="mailto:student@example.com" rel="author">Bootcamp Student</a>
+    </address>
+    <nav aria-label="Footer navigation">
+        <a class="anchor2" href="#my-collection">Collection</a>
+        <a class="anchor2" href="#add-book">Add Book</a>
+        <a class="anchor2" href="#reading-stats">Stats</a>
+        <a class="anchor2" href="#about">About</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
